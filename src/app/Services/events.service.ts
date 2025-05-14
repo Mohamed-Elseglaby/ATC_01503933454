@@ -5,21 +5,24 @@ const events = [{
     title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
     time:'09:00PM',
     date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
+    location:'Boom Room, Open Air Mall, Madinaty',
+    cost:500
 },
 {
     id: 1,
     title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
     time:'09:00PM',
     date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
+    location:'Boom Room, Open Air Mall, Madinaty',
+    cost:200
 },
 {
     id: 1,
     title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
     time:'09:00PM',
     date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
+    location:'Boom Room, Open Air Mall, Madinaty',
+    cost:300
 },]
 @Injectable({
   providedIn: 'root'

@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './Landing/landing.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 
 
 export const routes: Routes = [
@@ -9,6 +10,6 @@ export const routes: Routes = [
     {path:'home',component:LandingComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
-    {path:'event',component:RegisterComponent},
+    {path:'event',component:EventDetailComponent},
     {path:'**',redirectTo:'home'}
 ];

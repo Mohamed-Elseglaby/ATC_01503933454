@@ -10,5 +10,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './event.component.css'
 })
 export class EventComponent {
-@Input() event:EventDetails = {id:0,title:"Event Title",date:"May 30",location:"Alexandria",time:"09:00AM"}
+@Input() event:EventDetails = {id:0,title:"Event Title",date:"May 30",location:"Alexandria",time:"09:00AM",cost:250}
 }

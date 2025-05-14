@@ -3,5 +3,6 @@ export interface EventDetails {
     title:string,
     date:string,
     time:string,
-    location:string
+    location:string,
+    cost:number
 }
