@@ -1,21 +1,50 @@
-<p-button label="switch" (click)="toggleDarkTheme()"/>
-<h1>sdksamldkasl</h1>
-<div class="mb-4 p-8 flex items-center justify-center">
-    <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
-        <ng-template #header>
-            <img alt="Card" class="w-full" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
-        </ng-template>
-        <ng-template #title> Advanced Card </ng-template>
-        <ng-template #subtitle> Card subtitle </ng-template>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-            quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-        </p>
-        <ng-template #footer>
-            <div class="flex gap-4 mt-1">   
-                <p-button label="Cancel" severity="secondary" class="w-full" [outlined]="true" styleClass="w-full" />
-                <p-button label="Save" class="w-full" styleClass="w-full" />
-            </div>
-        </ng-template>
-    </p-card>
-</div>
+<nav class="px-4 py-4 mx-12 my-8 rounded-full shadow-xl text-surface-0 bg-surface-200 border-primary font-alex sm:px-0"    >
+  <div class="container relative flex flex-wrap items-center justify-between w-full mx-auto" [ngClass]="{'flex-row-reverse': currentLang==='en'}">
+    <!-- Logo -->
+    <div class="z-10 text-lg font-bold text-primary hover:cursor-pointer" routerLink="/welcome" >
+      <h1>{{'Event Store'|uppercase}}</h1>
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <p-button class="z-10 text-maintext lg:hidden" (click)="isMenuOpen = !isMenuOpen">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path [attr.d]="isMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'" />
+      </svg>
+    </p-button>
+
+    <!-- Buttons -->
+    <div class="z-10 hidden gap-2 text-sm lg:flex" [ngClass]="{'flex-row-reverse': currentLang==='en'}">
+      <a routerLink="/login" class="w-[120px] h-[40px] border border-primary text-primary flex justify-center items-center rounded-md" *ngIf="!isAuthorized">{{ 'navbar.login'}}</a>
+      <a routerLink="/register" class="w-[120px] h-[40px] bg-primary text-surface-0 font-medium flex justify-center items-center rounded-md" *ngIf="!isAuthorized">{{ 'navbar.register'}}</a>
+      <a routerLink="/profile" class="w-[120px] h-[40px] border border-primary text-primary flex justify-center items-center rounded-md" *ngIf="isAuthorized">{{ 'navbar.profile'}}</a>
+
+      <button class="flex items-center p-2 bg-transparent border-none cursor-pointer" (click)="toggleDarkTheme()">
+            <span class="pi pi-sun text-surface-0" *ngIf="!isDarkMode"></span>
+            <span class=" pi pi-moon text-surface-0" *ngIf="isDarkMode"></span>
+      </button>
+      <button (click)="toggleLanguage()">
+        {{currentLang==="ar"?"EN":"AR"}}  
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="order-3 w-full mt-4 border-t bg-footer border-primary lg:hidden">
+      <div class="flex flex-col w-full px-4 py-4 space-y-3 text-surface-0">
+        <a routerLink="/login" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="!isAuthorized">{{ 'navbar.login'}}</a>
+        <a routerLink="/register" class="w-full py-2 font-medium text-center rounded-md text-surface-0 bg-primary" *ngIf="!isAuthorized">{{ 'navbar.register' }}</a>
+        <a routerLink="/profile" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized">{{ 'navbar.profile'}}</a>
+        <button class="w-full py-2 text-center border rounded-md border-error text-error" *ngIf="isAuthorized">{{ 'navbar.logout'}}</button>
+        
+        <div class="flex justify-between w-full py-2">
+          <button class="flex items-center p-2 bg-transparent border-none cursor-pointer" (click)="toggleDarkTheme()">
+            <span class="px-4 py-2 border rounded-md text-main border-main text-primary pi pi-sun" *ngIf="!isDarkMode"></span>
+            <span class="px-4 py-2 border rounded-md pi pi-moon text-main border-main text-primary" *ngIf="isDarkMode"></span>
+          </button>
+          <button (click)="toggleLanguage()" class="px-4 py-2 border rounded-md text-main border-main text-primary">
+              {{currentLang==="ar"?"EN":"AR"}}  
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

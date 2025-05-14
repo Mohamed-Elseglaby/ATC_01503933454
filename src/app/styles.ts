@@ -19,7 +19,7 @@ export const MyPreset = definePreset(Aura, {
                     950: '{indigo.950}'
                 },
                 surface: {
-                    0: '#ffffff',
+                    0: '#000000',
                     50: '{zinc.50}',
                     100: '{zinc.100}',
                     200: '{zinc.200}',
@@ -33,7 +33,10 @@ export const MyPreset = definePreset(Aura, {
                     950: '{zinc.950}'
                 },
                 highlight:{
-
+                    background: 'rgba(250, 250, 250, .16)',
+                    focusBackground: 'rgba(250, 250, 250, .24)',
+                    color: 'rgba(255,255,255,.87)',
+                    focusColor: 'rgba(255,255,255,.87)'
                 }
             },
             dark: {
@@ -52,17 +55,17 @@ export const MyPreset = definePreset(Aura, {
                 },
                 surface: {
                     0: '#ffffff',
-                    50: '{slate.50}',
-                    100: '{slate.100}',
-                    200: '{slate.200}',
-                    300: '{slate.300}',
-                    400: '{slate.400}',
-                    500: '{slate.500}',
-                    600: '{slate.600}',
-                    700: '{slate.700}',
-                    800: '{slate.800}',
-                    900: '{slate.900}',
-                    950: '{slate.950}'
+                    50: '{zinc.950}',
+                    100: '{zinc.900}',
+                    200: '{zinc.800}',
+                    300: '{zinc.700}',
+                    400: '{zinc.600}',
+                    500: '{zinc.500}',
+                    600: '{zinc.400}',
+                    700: '{zinc.300}',
+                    800: '{zinc.200}',
+                    900: '{zinc.100}',
+                    950: '{zinc.50}'
                 },
                 highlight: {
                     background: 'rgba(250, 250, 250, .16)',
