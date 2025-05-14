@@ -1,0 +1,6 @@
+h1::after{
+    content: "";
+    width: 20px;
+    height: 10px;
+    background: #009;
+}
