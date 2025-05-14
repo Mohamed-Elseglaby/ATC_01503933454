@@ -1,1 +1,37 @@
-<p>hero works!</p>
+<div class="w-full overflow-x-auto no-scrollbar">
+    <div class="flex items-center justify-center ">
+    </div>
+</div>
+<p-carousel class="hidden lg:block" [value]="events" [numVisible]="1" [numScroll]="1" [circular]="true" autoplayInterval="4000">
+    <ng-template let-event #item>
+        <div class="flex items-center justify-center card">
+            <div class="w-max bg-surface-50 rounded-[56px] info lg:w-2/5 lg:h-[500px] p-[56px] flex flex-col gap-4 justify-center" >
+                <h1 class="font-mono text-lg font-semibold lg:text-3xl">{{event.title}}</h1>
+                <p class="my-2 text-2xl">{{event.date}} | {{event.time}}</p>
+                <p class="text-xl">{{event.location}}</p>
+                <div class="flex items-center gap-4 mt-4">
+                    <p-button label="Book Now" icon="pi pi-ticket" rounded="true"/>
+                    <span class="text-xl">More Info</span>
+                </div>
+            </div>
+            <img class="w-full img   bg-black rounded-[56px] h-96 info md:w-3/5 md:h-[500px]" src="https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg">
+        </div>
+    </ng-template>
+</p-carousel>
+
+<p-carousel class="block lg:hidden" [value]="events" [numVisible]="1" [numScroll]="1" orientation="vertical" verticalViewPortHeight="800px" contentClass="flex items-center" circular="true">
+        <ng-template let-event #item>
+        <div class="flex flex-col-reverse items-center justify-center mx-4 card lg:flex-row min-h-[800px]">
+            <div class="w-full bg-surface-50 rounded-[56px] info px-6 py-10 flex flex-col gap-4 justify-center" >
+                <h1 class="font-mono text-2xl font-semibold">{{event.title}}</h1>
+                <p class="my-2 text-xl">{{event.date}} | {{event.time}}</p>
+                <p class="text-lg">{{event.location}}</p>
+                <div class="flex items-center gap-4 mt-4">
+                    <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-sm"/>
+                    <span class="text-md">More Info</span>
+                </div>
+            </div>
+            <img class="min-w-full img  bg-black rounded-[56px] h-96 info md:w-3/5 md:h-[500px]" src="https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg">
+        </div>
+        </ng-template>
+    </p-carousel>
