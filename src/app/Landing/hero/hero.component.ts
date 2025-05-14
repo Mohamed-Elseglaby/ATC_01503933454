@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { EventDetails } from '../../Models/event-details';
+import { EventsService } from '../../Services/events.service';
 
 @Component({
   selector: 'app-hero',
@@ -10,30 +11,10 @@ import { EventDetails } from '../../Models/event-details';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent implements OnInit {
-  events: EventDetails[]=[{
-    id: 1,
-    title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
-    time:'09:00PM',
-    date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
-},
-{
-    id: 1,
-    title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
-    time:'09:00PM',
-    date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
-},
-{
-    id: 1,
-    title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
-    time:'09:00PM',
-    date:'May 30',
-    location:'Boom Room, Open Air Mall, Madinaty'
-},];
-
-  ngOnInit(): void {
-
+  events: EventDetails[]=[];
+  constructor(private eventsServ:EventsService){
+    this.events= this.eventsServ.getAll()
   }
+  ngOnInit(): void {}
 
 }
