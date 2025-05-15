@@ -10,5 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './events-list.component.css'
 })
 export class EventsListComponent {
-@Input() events: EventDetails[]= []
+@Input() events!: EventDetails[]
+myEvents:EventDetails[]=this.events
+
 }

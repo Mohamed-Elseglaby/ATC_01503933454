@@ -4,5 +4,9 @@ export interface EventDetails {
     date:string,
     time:string,
     location:string,
-    cost:number
+    cost:number,
+    Description:string,
+    Category:string,
+    map:string,
+    img:string
 }

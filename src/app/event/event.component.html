@@ -4,9 +4,9 @@
                 <p class="my-2 text-xl">{{event.date}} | {{event.time}}</p>
                 <p class="text-lg">{{event.location}}</p>
                 <div class="flex items-center gap-4 mt-4">
-                    <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-sm"/>
-                    <a class="text-md" [routerLink]="['/login']">More Info</a>
+                    <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-sm" (click)="book()"/>
+                    <a class="text-md" [routerLink]="['/event',event.id]">More Info</a>
                 </div>
             </div>
-            <img class="min-w-full img  bg-black rounded-[56px] h-60 info" src="https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg">
+            <img class="min-w-full img  bg-black rounded-[56px] h-60 info" [src]="event.img">
 </div>

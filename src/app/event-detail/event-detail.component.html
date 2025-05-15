@@ -1,13 +1,58 @@
+<p-toast />
 <div class="flex flex-col px-12">
-    <img class="min-w-full img  bg-black rounded-[56px]  info" src="https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg">
+    <img class="min-w-full img  bg-black rounded-[56px]  info" [src]="selectedEvent.img">
     <div class="flex items-center justify-between p-4">
         <div class="left">
-            <h1 class="text-3xl font-bold text-primary-emphasis">{{event.title}}</h1>
-            <p class="my-2 text-xl">{{event.date}} | {{event.time}}</p>
-            <p class="text-lg">{{event.location}}</p>
+            <h1 class="text-3xl font-bold text-primary-emphasis">{{selectedEvent.title}}</h1>
+            <p class="my-2 text-xl">{{selectedEvent.date}} | {{selectedEvent.time}}</p>
+            <p class="text-lg">{{selectedEvent.cost}}EGP</p>
         </div>
-        <div class="right">
-            <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-lg" size="large"/>
+        <div class="flex gap-4">
+            <input type="number" min="1" max="10" class="h-12 p-2 text-center border-2 rounded-lg border-primary-contrast" [(ngModel)]="value1">
+    <p-confirmdialog #cd>
+        <ng-template #headless let-message let-onAccept="onAccept" let-onReject="onReject">
+            <div class="flex flex-col items-center p-8 rounded bg-surface-0 dark:bg-surface-900">
+                <div
+                    class="inline-flex items-center justify-center w-24 h-24 -mt-20 rounded-full bg-primary text-primary-contrast"
+                >
+                    <i class="pi pi-question !text-5xl"></i>
+                </div>
+                <span class="block mt-6 mb-2 text-2xl font-bold">{{ message.header }}</span>
+                <p class="mb-0">{{ message.message }}</p>
+                <div class="flex items-center gap-2 mt-6">
+                    <p-button label="Save" (onClick)="onAccept()" styleClass="w-32"></p-button>
+                    <p-button label="Cancel" [outlined]="true" (onClick)="onReject()" styleClass="w-32"></p-button>
+                </div>
+            </div>
+        </ng-template>
+    </p-confirmdialog>
+            <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-lg" size="large" (click)="confirm()"/>
+            
+        </div>
+    </div>
+    <hr class="mx-4">
+    <div class="flex justify-between mx-4 mt-6 mb-12 space-y-2 location">
+        <div>
+        <div class="flex items-center gap-4">
+            <h1 class="text-3xl font-bold text-primary-emphasis">Location</h1>
+            <p-button  icon="pi pi-map" rounded="true" class="mt-2 text-lg"/> 
+        </div>
+        <p class="mb-4 text-2xl">{{selectedEvent.location}}</p>
+        </div>
+        <div>
+            <iframe class="rounded-2xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.487138831378!2d31.630418823322294!3d30.10887117489122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581d0076c628fd%3A0x79a9352dd30a2613!2sBoom%20Room!5e0!3m2!1sar!2seg!4v1747310203742!5m2!1sar!2seg" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    <hr class="mx-4">
+    <div class="flex justify-between mx-4 mt-6 mb-12 space-y-2 location">
+        <div>
+            <h1 class="text-3xl font-bold text-primary-emphasis">Rules</h1>
+            <ul class="flex flex-wrap justify-around mt-4 text-xl list-disc list-inside">
+                <li class="w-1/2 my-2">Doors one hour before the show</li>
+                <li class="w-1/2 my-2">Full ticket required starting 12 years old, less than 12 years old are not allowed.</li>
+                <li class="w-1/2 my-2">No Food & Beverage are allowed inside the theatre.</li>
+                <li class="w-1/2 my-2">No photography/videography allowed in the show.</li>
+            </ul>
         </div>
     </div>
 </div>

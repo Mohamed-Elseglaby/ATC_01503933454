@@ -10,6 +10,6 @@ export const routes: Routes = [
     {path:'home',component:LandingComponent},
     {path:'login',component:LoginComponent},
     {path:'register',component:RegisterComponent},
-    {path:'event',component:EventDetailComponent},
+    {path:'event/:id',component:EventDetailComponent},
     {path:'**',redirectTo:'home'}
 ];
