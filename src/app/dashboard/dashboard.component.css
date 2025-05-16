@@ -1,0 +1,166 @@
+
+  
+  body, :host {
+    background: var(--main-bg);
+    color: var(--main-text);
+  }
+  
+  .dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--main-bg);
+    color: var(--main-text);
+  }
+  aside {
+    width: var(--sidebar-width);
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  aside nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  aside nav ul li {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  aside nav ul li:hover {
+    background: var(--sidebar-active);
+  }
+  .icon {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+  .label {
+    font-size: 1rem;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem;
+    background: var(--main-bg);
+    color: var(--main-text);
+    min-width: 0;
+  }
+  
+
+  .student-form-inline {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    background: #23272f;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #353b48;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    flex-wrap: wrap;
+  }
+  
+  .student-form-inline .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  
+  .student-form-inline label {
+    color: #b0b7c3;
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+  }
+  
+  .student-form-inline input[type="text"],
+  .student-form-inline input[type="number"] {
+    width: 120px;
+    min-width: 0;
+    padding: 0.3rem 0.6rem;
+    background: #181c23;
+    border: 1px solid #353b48;
+    border-radius: 0.4rem;
+    color: #f4f4f4;
+    font-size: 0.98rem;
+    height: 32px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .student-form-inline input:focus {
+    border-color: #5c7cfa;
+    outline: none;
+    box-shadow: 0 0 0 1.5px #5c7cfa33;
+  }
+  
+  .student-form-inline button[type="submit"] {
+    padding: 0.35rem 1.2rem;
+    background: #5c7cfa;
+    color: #fff;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: 600;
+    font-size: 1rem;
+    height: 32px;
+    cursor: pointer;
+    transition: background 0.2s, opacity 0.2s;
+  }
+  
+  .student-form-inline button[type="submit"]:hover:not(:disabled) {
+    background: #4254e3;
+  }
+  
+  .student-form-inline button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 600px) {
+    .student-form-inline {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+    }
+    .student-form-inline .form-group input {
+      width: 100%;
+    }
+  }
+  
+
+  @media (max-width: 900px) {
+    .dashboard-layout {
+      flex-direction: column;
+    }
+    aside {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      transform: translateX(-100%);
+      width: var(--sidebar-width);
+      box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+      z-index: 200;
+    }
+    aside.open {
+      transform: translateX(0);
+    }
+    main {
+      padding: 1rem;
+    }
+    aside.open ~ main::before {
+      content: '';
+      display: block;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 150;
+    }
+  }
+  

@@ -1,0 +1,43 @@
+<div class="dashboard-layout">
+  <aside>
+    <nav>
+      <ul>
+        <li>
+          <i class="mr-2 pi pi-home"></i>
+          <span class="label">Home</span>
+        </li>
+        <li>
+          <i class="mr-2 pi pi-plus"></i>
+          <span class="label">Add Event</span>
+        </li>
+        <li>
+          <i class="mr-2 pi pi-home"></i>
+          <span class="label">Show Events</span>
+        </li>
+        <li>
+          <i class="mr-2 pi pi-sign-out"></i>
+          <span class="label">Logout</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main>
+    <p class="mb-4 text-3xl">Add New Event</p>
+    <form [formGroup]="eventForm" (ngSubmit)="addEvent()" class="student-form-inline">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input id="age" formControlName="age" type="number"/>
+      </div>
+      <div class="form-group">
+        <label for="grade">Grade</label>
+        <input id="grade" formControlName="grade" type="text" />
+      </div>
+      <button type="submit" [disabled]="eventForm.invalid">Add Student</button>
+    </form>
+    </main>
+</div>
