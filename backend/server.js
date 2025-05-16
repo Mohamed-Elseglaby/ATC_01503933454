@@ -17,6 +17,3 @@ app.get('/about',(req,res)=>{
     res.send('About Page')
 })
 app.listen(4000,()=> console.log("Server On!"));
-
-const crypto = require('crypto');
-console.log(crypto.randomBytes(64).toString('hex'));
