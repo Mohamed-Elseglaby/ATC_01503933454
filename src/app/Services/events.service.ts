@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EventDetails } from '../Models/event-details';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 const events = [{
     id: 1,
     title:'Boom Room Turns 1 Featuring Sharmoofers and Surprise Guests',
@@ -61,15 +63,19 @@ const events = [{
     img:'https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/b3459e7c3f2323ec59097c3180c247c2.jpg'
 },
 ]
+const api = 'https://areeb-back-2025-6oqm.vercel.app/api'
 @Injectable({
   providedIn: 'root'
 })
 export class EventsService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  getAll(){
-    return events
+  getAll():Observable<EventDetails[]>{
+    return this.http.get<EventDetails[]>(`${api}/events`)
+  }
+  addEvent(newevent:EventDetails):Observable<EventDetails>{
+    return this.http.post<EventDetails>(`${api}/events`,newevent)
   }
   getEvent(id:number){
     return events[id-1]

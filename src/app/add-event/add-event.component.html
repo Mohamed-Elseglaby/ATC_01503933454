@@ -1,0 +1,40 @@
+<p class="mb-4 text-3xl">Add New Event</p>
+    <form [formGroup]="eventForm" class="p-4 border border-primary rounded-xl">
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Event Title</label>
+        <input id="name" formControlName="title" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Date</label>
+        <input id="name" formControlName="date" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Time</label>
+        <input id="name" formControlName="time" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Location</label>
+        <input id="name" formControlName="location" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Cost</label>
+        <input id="name" formControlName="cost" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Description</label>
+        <input id="name" formControlName="Description" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Category</label>
+        <input id="name" formControlName="Category" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Map URL</label>
+        <input id="name" formControlName="map" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <div class="flex flex-col mb-4">
+        <label for="name" class="text-xl">Img URL</label>
+        <input id="name" formControlName="img" type="text" class="p-2 mt-2 rounded-lg"/>
+      </div>
+      <button [disabled]="eventForm.invalid" label="Add Event" (click)="onSubmit()" class="p-3 border-2 rounded-2xl border-primary hover:bg-primary-emphasis">Add Event</button>
+    </form>

@@ -5,8 +5,12 @@ const router = express.Router();
 
 // get All Events
 router.get('/',async (req,res)=>{
-    const events = await Event.find();
-    res.json(events);
+    try{
+        const events = await Event.find();
+        res.json(events);
+    }catch(err){
+        res.status(500).json({message:'error'})
+    }
 });
 
 //get by ID
