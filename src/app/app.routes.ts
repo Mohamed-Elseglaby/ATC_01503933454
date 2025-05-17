@@ -4,14 +4,16 @@ import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './Landing/landing.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { noAuthGuard } from './guards/no-auth.guard';
+import { authGuard } from './guards/auth.guard';
 
 
 export const routes: Routes = [
     {path:'',redirectTo:'home',pathMatch:'full'},
     {path:'home',component:LandingComponent},
-    {path:'login',component:LoginComponent},
-    {path:'register',component:RegisterComponent},
-    {path:'dashboard',component:DashboardComponent},
+    {path:'login',component:LoginComponent,canActivate:[noAuthGuard]},
+    {path:'register',component:RegisterComponent,canActivate:[noAuthGuard]},
+    {path:'dashboard',component:DashboardComponent,canActivate:[authGuard]},
     {path:'event/:id',component:EventDetailComponent},
     {path:'**',redirectTo:'home'}
 ];

@@ -63,7 +63,7 @@ const events = [{
     img:'https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/b3459e7c3f2323ec59097c3180c247c2.jpg'
 },
 ]
-const api = 'https://areeb-back-2025-6oqm.vercel.app/api'
+const api = 'https://areeb-back-2025.vercel.app/api'
 @Injectable({
   providedIn: 'root'
 })
@@ -77,14 +77,8 @@ export class EventsService {
   addEvent(newevent:EventDetails):Observable<EventDetails>{
     return this.http.post<EventDetails>(`${api}/events`,newevent)
   }
-  getEvent(id:number){
-    return events[id-1]
-  }
-  add(newevent:EventDetails){
-    events.push(newevent);
-  }
-  update(id:number,newevent:EventDetails){
-    events[id] =newevent;
+  getEvent(id:string|null){
+    return events[0]
   }
   Delete(id:number,newevent:EventDetails){
     return events.splice(id,1);

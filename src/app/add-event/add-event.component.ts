@@ -36,7 +36,7 @@ export class AddEventComponent implements OnInit{
           console.log("event added",res)
         },
         error:(err)=>{
-          console.log("error")
+          console.log("error",err)
         }
       })
     }
