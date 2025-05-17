@@ -40,7 +40,7 @@ router.post('/login', async (req,res)=>{
             return res.status(400).json({message:'invalid User Data'});
         }
         const token = jwt.sign({id:alreadyUser._id,role:alreadyUser.role},process.env.JWT_SECRET)
-        await user.save()
+        await alreadyUser.save()
         res.status(201).json({message:'User Succesfully Logined',
             token,
             user:{
