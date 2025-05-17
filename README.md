@@ -7,7 +7,7 @@ A comprehensive full-stack application for booking and managing events. Built wi
 - Frontend Demo: [https://atc-01503933454.vercel.app/](https://atc-01503933454.vercel.app/)
 - Backend API: [https://areeb-back-2025.vercel.app/](https://areeb-back-2025.vercel.app/)
 
-##Admin Test
+### Admin Test
 - username: Admin
 - password: admin@123
 ## Technologies Used
