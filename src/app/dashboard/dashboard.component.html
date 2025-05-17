@@ -4,26 +4,32 @@
       <ul>
         <li>
           <i class="mr-2 pi pi-home"></i>
-          <span class="label">Home</span>
+          <button class="label" (click)="home()">Home</button>
         </li>
-        <li>
+        <li [ngClass]="{'bg-surface-100':option==1}">
+          <i class="mr-2 pi pi-eye" ></i>
+          <button class="label" (click)="option=1">Show Events</button>
+        </li>
+        <li [ngClass]="{'bg-surface-100':option==2}">
           <i class="mr-2 pi pi-plus"></i>
-          <span class="label">Add Event</span>
+          <button class="label" (click)="option=2">New Event</button>
         </li>
-        <li>
-          <i class="mr-2 pi pi-home"></i>
-          <span class="label">Show Events</span>
-        </li>
-        <li>
+        <li class="text-rose-500">
           <i class="mr-2 pi pi-sign-out"></i>
-          <span class="label">Logout</span>
+          <button class="label" (click)="logout()">Logout</button>
         </li>
       </ul>
     </nav>
   </aside>
 
-  <main>
+  <main> 
+    @switch (option) {
+    @case (1) {
+      <app-show-events></app-show-events>
+    }
+    @case (2) {
     <app-add-event></app-add-event>
-    <app-show-events></app-show-events>
+    }
+  }
     </main>
 </div>
