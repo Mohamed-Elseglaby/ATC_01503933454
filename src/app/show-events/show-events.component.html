@@ -1,21 +1,29 @@
-    <p-table
+<p class="mb-4 text-3xl">Show Events</p>
+<p-table
         [value]="events"
         showGridlines
         [tableStyle]="{ 'min-width': '50rem' }">
+<p-toast />
+<p-confirmpopup />
             <ng-template #header>
                 <tr>
-                    <th>Code</th>
                     <th>Name</th>
-                    <th>Category</th>
-                    <th>Quantity</th>
+                    <th>time</th>
+                    <th>date</th>
+                    <th>Cost</th>
+                    <th>Actions</th>
                 </tr>
             </ng-template>
             <ng-template #body let-event>
                 <tr>
-                    <td>{{ event._id }}</td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.category }}</td>
-                    <td>{{ event.quantity }}</td>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.time }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.cost }}</td>
+                    <td class="flex justify-center w-full gap-2">
+                        <p-button icon="pi pi-pencil" (click)="show(event._id)"/>
+                        <p-button (onClick)="delete($event,event._id)" severity="danger" icon="pi pi-times"/>
+                    </td>
                 </tr>
             </ng-template>
     </p-table>

@@ -1,3 +1,6 @@
-.p-datatable::ng-deep{
-    background-color: red !important;
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
 }

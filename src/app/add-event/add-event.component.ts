@@ -33,7 +33,8 @@ export class AddEventComponent implements OnInit{
     if(this.eventForm.valid){
       this.eventServ.addEvent(this.eventForm.value).subscribe({
         next:(res)=>{
-          console.log("event added",res)
+          console.log("event edited",res)
+              this.eventForm.reset();
         },
         error:(err)=>{
           console.log("error",err)
