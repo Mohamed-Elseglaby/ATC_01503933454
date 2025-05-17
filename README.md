@@ -13,6 +13,10 @@ ATC_01503933454/
 │   └── angular.json      # Angular project configuration
 └── README.md             # Project documentation
 ```
+## Demo
+
+- Frontend Demo: [https://atc-01503933454.vercel.app/](https://atc-01503933454.vercel.app/)
+- Backend API: [https://areeb-back-2025.vercel.app/](https://areeb-back-2025.vercel.app/)
 
 ## Technologies Used
 
@@ -65,9 +69,9 @@ npm install
 Create a `.env` file in the `backend` directory with the following content:
 
 ```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/event-booking
-JWT_SECRET=your_secret_key_here
+PORT=4000
+MONGODB_URI=mongodb+srv://moshka:Emoshka33%23@cluster0.4kegolo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+JWT_SECRET=49e5a5551eba19c2daa88574b38717f237b5a5a00d75fdba17f753440dde67695cb35d27567f352019a2eb30b7cd49b2a7898491c0668ee70b6553cb5cfb3b28
 ```
 
 ### Run the server
@@ -215,11 +219,6 @@ The backend API provides the following routes:
 - [x] Event CRUD operations
 - [x] User booking system
 - [x] Deployment-ready
-
-## Demo
-
-- Frontend Demo: [https://atc-01503933454.vercel.app/](https://atc-01503933454.vercel.app/)
-- Backend API: [https://areeb-back-2025.vercel.app/](https://areeb-back-2025.vercel.app/)
 
 ## Author
 
