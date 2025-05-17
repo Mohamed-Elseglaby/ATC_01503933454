@@ -22,4 +22,7 @@ export class AuthService {
   register(username:string,password:string,role?:string):Observable<any>{
     return this.http.post<any>(`${this.URL}/register`,{username,password,role})
   }
+  login(username:string,password:string):Observable<any>{
+    return this.http.post<any>(`${this.URL}/login`,{username,password})
+  }
 }

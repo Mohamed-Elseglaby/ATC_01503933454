@@ -35,13 +35,20 @@ router.post('/login', async (req,res)=>{
             return res.status(400).json({message:'Please Register first'});
         }
 
-        const isMatched = await bcrypt.compare(password,user.password);
+        const isMatched = await bcrypt.compare(password,alreadyUser.password);
         if(!isMatched){
             return res.status(400).json({message:'invalid User Data'});
         }
-        const token = jwt.sign({id:user._id,role:user.role},)
+        const token = jwt.sign({id:alreadyUser._id,role:alreadyUser.role},process.env.JWT_SECRET)
         await user.save()
-        res.status(201).json({message:'User Succesfully Registered'})
+        res.status(201).json({message:'User Succesfully Logined',
+            token,
+            user:{
+                id:alreadyUser._id,
+                username:alreadyUser.username,
+                role:alreadyUser.role
+            }
+        })
     }
     catch(err){
         res.status(500).json({message:err.message})
