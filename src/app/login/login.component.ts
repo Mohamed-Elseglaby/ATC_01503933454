@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ReactiveFormsModule,FormGroup,Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../Services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
-  imports: [CheckboxModule,ReactiveFormsModule],
+  imports: [CheckboxModule,ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -28,7 +28,12 @@ constructor(private fb:FormBuilder,private authServ:AuthService,private router:R
           console.log(res)
           this.authServ.storeToken(res.token);
           this.authServ.storeRole(res.user)
-          this.router.navigate(['/dashboard'])
+          if(this.authServ.getRole()==='admin'){
+            this.router.navigate(['/dashboard'])
+          }
+          else{
+            this.router.navigate(['/home'])
+          }
         },
         error:(err)=>{
           console.log(err)

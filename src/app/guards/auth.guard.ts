@@ -9,6 +9,8 @@ export class authGuard implements CanActivate{
   canActivate(): boolean {
   if(localStorage.getItem('JWT')&&localStorage.getItem('role')==='admin'){
     return true
+  }else if(localStorage.getItem('JWT')&&localStorage.getItem('role')!=='admin'){
+      this.router.navigate(['/home'])
   }
   this.router.navigate(['/login'])
   return false
