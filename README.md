@@ -53,16 +53,6 @@ cd backend
 npm install
 ```
 
-### Create `.env` file
-
-Create a `.env` file in the `backend` directory with the following content:
-
-```env
-PORT=4000
-MONGODB_URI=mongodb+srv://moshka:Emoshka33%23@cluster0.4kegolo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=49e5a5551eba19c2daa88574b38719f237b5a5a00d75fdba19f753440dde67695cb35d27567f352019a2eb30b7cd49b2a7898491c0668ee70b6553cb5cfb3b28
-```
-
 ### Run the server
 
 ```bash
@@ -106,12 +96,6 @@ Key dependencies used in the Angular project:
 }
 ```
 
-> You can add the deployment tool if needed:
-
-```bash
-ng add angular-cli-ghpages
-```
-
 ### Run the Angular app
 
 ```bash
@@ -146,13 +130,6 @@ ng serve
 ng build --configuration production
 ```
 
-### Deploy to GitHub Pages
-
-```bash
-ng build --base-href "/ATC_01503933454/"
-npx angular-cli-ghpages --dir=dist/areeb-task
-```
-
 ## Environment Configuration
 
 ### Backend `.env` Sample
@@ -168,7 +145,7 @@ JWT_SECRET=your_jwt_secret
 ```ts
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5000/api'
+  apiUrl: 'http://localhost:4000/api'
 };
 ```
 
@@ -211,11 +188,7 @@ The backend API provides the following routes:
 
 ## Author
 
-**Mohamed Elsayed (Moshka)**  
+**Mohamed Elsayed Mohamed**  
 - Front-End Instructor & Angular Developer  
 - GitHub: [Mohamed-Elseglaby](https://github.com/Mohamed-Elseglaby)  
 - LinkedIn: [mohamed-elseglaby](https://www.linkedin.com/in/mohamed-elseglaby/)
-
-## License
-
-This project is licensed under the MIT License.
