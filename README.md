@@ -2,17 +2,6 @@
 # Full-Stack Event Booking System (Angular + Express + MongoDB)
 
 A comprehensive full-stack application for booking and managing events. Built with Angular 19 (frontend), Express (backend), and MongoDB for data storage.
-
-## Project Structure
-
-```
-ATC_01503933454/
-├── backend/              # Node.js Express backend
-│   └── package.json      # Backend dependencies and scripts
-├── frontend/             # Angular 19 project
-│   └── angular.json      # Angular project configuration
-└── README.md             # Project documentation
-```
 ## Demo
 
 - Frontend Demo: [https://atc-01503933454.vercel.app/](https://atc-01503933454.vercel.app/)
