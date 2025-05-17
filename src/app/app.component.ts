@@ -13,6 +13,6 @@ export class AppComponent {
   title = 'areeb-task';
   constructor(private router:Router){}
   isClear():boolean{
-    return !['/dashboard'].includes(this.router.url);
+    return !['/dashboard','/register','/login'].includes(this.router.url);
   }
 }

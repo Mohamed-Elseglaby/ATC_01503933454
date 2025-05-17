@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { EventsService } from '../Services/events.service';
 import { EventDetails } from '../Models/event-details';
 import { AddEventComponent } from '../add-event/add-event.component';
+import { ShowEventsComponent } from '../show-events/show-events.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [ReactiveFormsModule,AddEventComponent],
+  imports: [ReactiveFormsModule,AddEventComponent,ShowEventsComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })

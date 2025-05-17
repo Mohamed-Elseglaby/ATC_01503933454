@@ -19,7 +19,7 @@ export const MyPreset = definePreset(Aura, {
                     950: '{indigo.950}'
                 },
                 surface: {
-                    0: '#000000',
+                    0: '#ffffff',
                     50: '{zinc.50}',
                     100: '{zinc.100}',
                     200: '{zinc.200}',
@@ -35,8 +35,8 @@ export const MyPreset = definePreset(Aura, {
                 highlight:{
                     background: 'rgba(250, 250, 250, .16)',
                     focusBackground: 'rgba(250, 250, 250, .24)',
-                    color: 'rgba(255,255,255,.87)',
-                    focusColor: 'rgba(255,255,255,.87)'
+                    color: 'rgba(0,0,0,.87)',
+                    focusColor: 'rgba(0,0,0,.87)'
                 }
             },
             dark: {
@@ -54,7 +54,7 @@ export const MyPreset = definePreset(Aura, {
                     950: '{cyan.950}'
                 },
                 surface: {
-                    0: '#ffffff',
+                    0: '#000000',
                     50: '{zinc.950}',
                     100: '{zinc.900}',
                     200: '{zinc.800}',

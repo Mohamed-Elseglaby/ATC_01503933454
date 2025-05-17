@@ -34,4 +34,14 @@ export class AuthService {
   getRole(){
     return localStorage.getItem('role');
   }
+  getToken(){
+    return localStorage.getItem('JWT');
+  }
+  isLoggend(){
+    return !!localStorage.getItem('JWT')
+  }
+  logout(){
+    localStorage.removeItem('role')
+    localStorage.removeItem('JWT')
+  }
 }

@@ -1,64 +1,41 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { AuthService } from '../../Services/auth.service';
+const element = document.querySelector('html');
 @Component({
   selector: 'app-navbar',
-  imports: [ButtonModule,CardModule,CommonModule],
+  imports: [ButtonModule,CardModule,CommonModule,RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-    isLangDropdownOpen: boolean = false;
   isDropdownOpen: boolean = true;
-  currentLang: string = 'ع ر';
   isAuthorized!: boolean;
   isMenuOpen: boolean = false;
   isDarkMode!: boolean;
   
-  private messageListener: any;
+  constructor(private authServ:AuthService,private router:Router) {}
 
-  constructor(
-
-  ) {
-    const savedLang = localStorage.getItem('preferredLanguage');
-    this.currentLang= savedLang!;
-  }
   ngOnInit(): void {
-
-    
-    // Define message listener
-    this.messageListener = (event: MessageEvent) => {
-      if (event.origin === window.location.origin && event.data?.type === 'auth-success') {
-        console.log('Received auth success message');
-        this.ngOnInit();
-      }
-    };
-    
-    // Add event listener
-    window.addEventListener('message', this.messageListener);
-  }
-  
-  ngOnDestroy(): void {
-
-  }
-
-  toggleLanguage(): void {
-    if(this.currentLang!='en'){
-      this.changeLang('en')
-    } else {
-      this.changeLang('ع ر')
+    this.isDarkMode = localStorage.getItem('theme')==='dark';
+    if(this.isDarkMode){
+      element?.classList.add('my-app-dark')
     }
-  }
-
-  changeLang(language: "ع ر" | "en") {
-    console.log(language)
+    else{
+      element?.classList.remove('my-app-dark')
+    }
+    this.isAuthorized = this.authServ.isLoggend()
   }
   toggleDarkTheme(){
-    const element = document.querySelector('html');
-    if(element){
-      element.classList.toggle('my-app-dark');
-    }
-    
+      element?.classList.toggle('my-app-dark');
+      this.isDarkMode = !this.isDarkMode;
+      localStorage.getItem('theme')==='dark'?localStorage.setItem('theme','light'):localStorage.setItem('theme','dark')
+  }
+  logout(){
+    this.authServ.logout()
+    this.router.navigate(['./login'])
   }
 }
