@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ReactiveFormsModule,FormGroup,Validators, FormBuilder } from '@angular/forms';
 import { AuthService } from '../Services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { AuthService } from '../Services/auth.service';
 })
 export class LoginComponent {
 loginForm!:FormGroup;
-constructor(private fb:FormBuilder,private authServ:AuthService){}
+constructor(private fb:FormBuilder,private authServ:AuthService,private router:Router){}
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username:['',Validators.required],
@@ -25,6 +26,9 @@ constructor(private fb:FormBuilder,private authServ:AuthService){}
       this.authServ.login(username,password).subscribe({
         next:(res)=>{
           console.log(res)
+          this.authServ.storeToken(res.token);
+          this.authServ.storeRole(res.user)
+          this.router.navigate(['/dashboard'])
         },
         error:(err)=>{
           console.log(err)
