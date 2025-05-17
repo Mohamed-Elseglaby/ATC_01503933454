@@ -5,7 +5,7 @@
                 <p class="text-lg">{{event.location}}</p>
                 <div class="flex items-center gap-4 mt-4">
                     <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-sm" (click)="book()"/>
-                    <a class="text-md" [routerLink]="['/event',event.id]">More Info</a>
+                    <a class="text-md" [routerLink]="['/event',event._id]">More Info</a>
                 </div>
             </div>
             <img class="min-w-full img  bg-black rounded-[56px] h-60 info" [src]="event.img">

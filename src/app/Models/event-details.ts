@@ -1,5 +1,5 @@
 export interface EventDetails {
-    id:string,
+    _id:string,
     title:string,
     date:string,
     time:string,
