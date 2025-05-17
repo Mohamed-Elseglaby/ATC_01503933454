@@ -1,7 +1,7 @@
 
 # Full-Stack Event Booking System (Angular + Express + MongoDB)
 
-A comprehensive full-stack application for booking and managing events. Built with Angular 17 (frontend), Express (backend), and MongoDB for data storage.
+A comprehensive full-stack application for booking and managing events. Built with Angular 19 (frontend), Express (backend), and MongoDB for data storage.
 
 ## Project Structure
 
@@ -9,7 +9,7 @@ A comprehensive full-stack application for booking and managing events. Built wi
 ATC_01503933454/
 ├── backend/              # Node.js Express backend
 │   └── package.json      # Backend dependencies and scripts
-├── frontend/             # Angular 17 project
+├── frontend/             # Angular 19 project
 │   └── angular.json      # Angular project configuration
 └── README.md             # Project documentation
 ```
@@ -20,9 +20,9 @@ ATC_01503933454/
 
 ## Technologies Used
 
-### Frontend (Angular 17)
+### Frontend (Angular 19)
 
-- Angular CLI v17.x
+- Angular CLI v19.x
 - PrimeNG for UI components
 - TypeScript 5.x
 - SCSS / CSS
@@ -71,7 +71,7 @@ Create a `.env` file in the `backend` directory with the following content:
 ```env
 PORT=4000
 MONGODB_URI=mongodb+srv://moshka:Emoshka33%23@cluster0.4kegolo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=49e5a5551eba19c2daa88574b38717f237b5a5a00d75fdba17f753440dde67695cb35d27567f352019a2eb30b7cd49b2a7898491c0668ee70b6553cb5cfb3b28
+JWT_SECRET=49e5a5551eba19c2daa88574b38719f237b5a5a00d75fdba19f753440dde67695cb35d27567f352019a2eb30b7cd49b2a7898491c0668ee70b6553cb5cfb3b28
 ```
 
 ### Run the server
@@ -82,7 +82,7 @@ npm run dev
 
 - Server runs on: `http://localhost:5000`
 
-## Frontend Setup (Angular 17)
+## Frontend Setup (Angular 19)
 
 ### Navigate to the frontend folder
 
@@ -102,14 +102,14 @@ Key dependencies used in the Angular project:
 
 ```json
 "dependencies": {
-  "@angular/animations": "^17.0.0",
-  "@angular/common": "^17.0.0",
-  "@angular/compiler": "^17.0.0",
-  "@angular/core": "^17.0.0",
-  "@angular/forms": "^17.0.0",
-  "@angular/platform-browser": "^17.0.0",
-  "@angular/platform-browser-dynamic": "^17.0.0",
-  "@angular/router": "^17.0.0",
+  "@angular/animations": "^19.0.0",
+  "@angular/common": "^19.0.0",
+  "@angular/compiler": "^19.0.0",
+  "@angular/core": "^19.0.0",
+  "@angular/forms": "^19.0.0",
+  "@angular/platform-browser": "^19.0.0",
+  "@angular/platform-browser-dynamic": "^19.0.0",
+  "@angular/router": "^19.0.0",
   "rxjs": "^7.8.0",
   "zone.js": "^0.14.0",
   "primeng": "^16.0.0",
@@ -170,7 +170,7 @@ npx angular-cli-ghpages --dir=dist/areeb-task
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/event-booking
+MONGODB_URI=mongodb://localhost:27019/event-booking
 JWT_SECRET=your_jwt_secret
 ```
 
@@ -211,7 +211,7 @@ The backend API provides the following routes:
 
 ## Final Setup Checklist
 
-- [x] Angular 17 with PrimeNG
+- [x] Angular 19 with PrimeNG
 - [x] Express backend with MongoDB
 - [x] JWT authentication
 - [x] CORS enabled
