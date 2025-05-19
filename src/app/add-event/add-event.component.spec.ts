@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddEventComponent } from './add-event.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
 
 describe('AddEventComponent', () => {
   let component: AddEventComponent;
@@ -8,7 +10,8 @@ describe('AddEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddEventComponent]
+      imports: [AddEventComponent],
+      providers:[provideHttpClient(),provideRouter([])]
     })
     .compileComponents();
 

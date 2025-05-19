@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'areeb-task';
+  title = 'EVENT STORE';
   constructor(private router:Router){}
   isClear():boolean{
     return !['/dashboard','/dashboard/add','/register','/login'].includes(this.router.url);

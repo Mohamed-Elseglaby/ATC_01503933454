@@ -9,7 +9,7 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-login',
   imports: [CheckboxModule,ReactiveFormsModule,RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
 loginForm!:FormGroup;

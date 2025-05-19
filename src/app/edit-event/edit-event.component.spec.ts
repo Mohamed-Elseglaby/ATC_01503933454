@@ -1,6 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditEventComponent } from './edit-event.component';
+import { provideHttpClient } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { EventsService } from '../Services/events.service';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 describe('EditEventComponent', () => {
   let component: EditEventComponent;
@@ -8,7 +13,9 @@ describe('EditEventComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditEventComponent]
+      imports: [EditEventComponent],
+      providers:[provideHttpClient(),provideRouter([]),EventsService,MessageService,ConfirmationService,DynamicDialogConfig,DynamicDialogRef
+      ]
     })
     .compileComponents();
 
