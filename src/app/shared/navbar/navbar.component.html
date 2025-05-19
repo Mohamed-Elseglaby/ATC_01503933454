@@ -15,7 +15,7 @@
     <div class="z-10 hidden gap-2 text-sm lg:flex">
       <a routerLink="/login" class="w-[120px] h-[40px] border border-primary text-primary flex justify-center items-center rounded-md" *ngIf="!isAuthorized">Login</a>
       <a routerLink="/register" class="w-[120px] h-[40px] bg-primary text-surface-0 flex justify-center items-center rounded-md" *ngIf="!isAuthorized">Register</a>
-      <a routerLink="/dashboard" class="w-[120px] h-[40px] border border-primary text-primary flex justify-center items-center rounded-md" *ngIf="isAuthorized">Dashboard</a>
+      <a routerLink="/dashboard" class="w-[120px] h-[40px] border border-primary text-primary flex justify-center items-center rounded-md" *ngIf="isAuthorized&&isAdmin">Dashboard</a>
       <button class="w-[120px] py-2 text-center border rounded-md border-rose-500 text-rose-500" *ngIf="isAuthorized" (click)="logout()">Logout</button>
       <button class="flex items-center p-2 border-none cursor-pointer" (click)="toggleDarkTheme()">
             <span class="pi pi-sun" *ngIf="!isDarkMode"></span>
@@ -28,7 +28,7 @@
       <div class="flex flex-col w-full px-4 py-4 space-y-3 text-surface-0">
         <a routerLink="/login" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="!isAuthorized">Login</a>
         <a routerLink="/register" class="w-full py-2 font-medium text-center rounded-md text-surface-0 bg-primary" *ngIf="!isAuthorized">Register</a>
-        <a routerLink="/dashboard" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized">Dashboard</a>
+        <a routerLink="/dashboard" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized&&isAdmin">Dashboard</a>
         <button class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized">Logout</button>
         
         <div class="flex justify-between w-full py-2">

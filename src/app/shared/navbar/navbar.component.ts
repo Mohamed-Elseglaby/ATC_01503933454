@@ -16,7 +16,7 @@ export class NavbarComponent {
   isAuthorized!: boolean;
   isMenuOpen: boolean = false;
   isDarkMode!: boolean;
-  
+  isAdmin!:boolean;
   constructor(private authServ:AuthService,private router:Router) {}
 
   ngOnInit(): void {
@@ -28,6 +28,7 @@ export class NavbarComponent {
       element?.classList.remove('my-app-dark')
     }
     this.isAuthorized = this.authServ.isLoggend()
+    this.isAdmin = localStorage.getItem('role') === 'admin'
   }
   toggleDarkTheme(){
       element?.classList.toggle('my-app-dark');
