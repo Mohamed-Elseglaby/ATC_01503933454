@@ -1,4 +1,3 @@
-
 # Full-Stack Event Booking System (Angular + Express + MongoDB)
 
 A comprehensive full-stack application for booking and managing events. Built with Angular 19 (frontend), Express (backend), and MongoDB for data storage.
@@ -7,10 +6,60 @@ A comprehensive full-stack application for booking and managing events. Built wi
 - Frontend Demo: [https://atc-01503933454.vercel.app/](https://atc-01503933454.vercel.app/)
 - Backend API: [https://areeb-back-2025.vercel.app/](https://areeb-back-2025.vercel.app/)
 
-### Admin Test
+##Admin Test
 - username: Admin
 - password: admin@123
 ## Technologies Used
+
+## ✅ Project Features Checklist
+
+### 📌 Core Features
+
+| Feature                                   | Status |
+| ----------------------------------------- | ------ |
+| 🔐 User Authentication (Login / Register) | ✅      |
+| 🏠 Home Page (Event Listings)             | ✅      |
+| ➕ Book Event Button                      | ✅      |
+| 📄 Event Details Page                     | ✅      |
+| 🎉 Booking Confirmation Screen            | ✅      |
+| 🧾 Admin Panel for Events                 | ✅      |
+| 👥 Role-Based Access (Admin/User)         | ✅      |
+| 🌐 Deployed Backend (Vercel)              | ✅      |
+| 🌐 Deployed Frontend (Vercel)             | ✅      |
+
+### 🎨 UI & UX
+
+| Feature                           | Status       |
+| --------------------------------- | ------------ |
+| Web-only UI                       | ✅           |
+| Custom Design                     | ✅           |
+| Dark Mode                         | ✅           |
+
+### 🛠 Backend
+
+| Feature                              | Status |
+| ------------------------------------ | ------ |
+| JWT Authentication                   | ✅      |
+| RESTful API (Events, Auth, Bookings) | ✅      |
+| Password Encryption (bcrypt)         | ✅      |
+
+### 🎯 Optional Enhancements
+
+| Feature                   | Status                       |
+| ------------------------- | ---------------------------- |
+| Tags / Categories         | ✅ Basic category implemented |
+| Image Upload              | ✅ Via external URLs          |
+
+### 🚀 Bonus
+
+| Feature                        | Status |
+| ------------------------------ | ------ |
+| Backend Deployed               | ✅      |
+| Frontend Deployed              | ✅      |
+| Unit Testing (Karma + Jasmine) | ✅      |
+
+---
+
 
 ### Frontend (Angular 19)
 
@@ -188,6 +237,24 @@ The backend API provides the following routes:
 - [x] Event CRUD operations
 - [x] User booking system
 - [x] Deployment-ready
+
+## 🧪 Unit Testing Results
+
+> ✔ **22 specs passed, 0 failures** using **Karma + Jasmine**
+
+Components tested:
+
+* `EventDetailComponent`
+* `LoginComponent`
+* `RegisterComponent`
+* `DashboardComponent`
+* `BookingService`
+* `AuthService`
+* `NavbarComponent`
+* and more...
+![image](https://github.com/user-attachments/assets/db69124a-cc38-4e17-b3b1-3467e8c72380)
+
+
 
 ## Author
 
