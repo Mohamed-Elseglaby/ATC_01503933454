@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { CommonModule } from '@angular/common';
-import { LoaderComponent } from './shared/loader/loader.component';
+import { CommonModule } from '@angular/common'
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,ButtonModule,NavbarComponent,CommonModule,LoaderComponent],
+  imports: [RouterOutlet,ButtonModule,NavbarComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
