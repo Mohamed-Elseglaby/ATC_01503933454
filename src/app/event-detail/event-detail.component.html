@@ -6,9 +6,10 @@
             <h1 class="text-3xl font-bold text-primary-emphasis">{{selectedEvent?.title}}</h1>
             <p class="my-2 text-xl">{{selectedEvent?.date}} | {{selectedEvent?.time}}</p>
             <p class="text-lg">{{selectedEvent?.cost}}EGP</p>
+            <p-tag severity="success" value="Booked" *ngIf="isBooked(selectedEvent?._id)"/>
+            <p-tag severity="warn" value="Not Booked" *ngIf="!isBooked(selectedEvent?._id)"/>
         </div>
         <div class="flex gap-4">
-            <input type="number" min="1" max="10" class="h-12 p-2 text-center border-2 rounded-lg border-primary-contrast" [(ngModel)]="value1">
     <p-confirmdialog #cd>
         <ng-template #headless let-message let-onAccept="onAccept" let-onReject="onReject">
             <div class="flex flex-col items-center p-8 rounded bg-surface-0 dark:bg-surface-900">
@@ -26,7 +27,7 @@
             </div>
         </ng-template>
     </p-confirmdialog>
-            <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-lg" size="large" (click)="confirm()"/>
+            <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-lg" size="large" (click)="confirm()" [disabled]="isBooked(selectedEvent?._id)"/>
             
         </div>
     </div>

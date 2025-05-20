@@ -3,6 +3,8 @@
                 <h1 class="text-2xl font-semibold ">{{event.title}}</h1>
                 <p class="my-2 text-xl">{{event.date}} | {{event.time}}</p>
                 <p class="text-lg">{{event.location}}</p>
+                <p-tag severity="success" value="Booked" *ngIf="isBooked" class="w-fit"/>
+                <p-tag severity="warn" value="Not Booked" *ngIf="!isBooked" class="w-fit"/>
                 <div class="flex items-center gap-4 mt-4">
                     <p-button label="Book Now" icon="pi pi-ticket" rounded="true" class="text-sm" (click)="book()"/>
                     <a class="text-md" [routerLink]="['/event',event._id]">More Info</a>
