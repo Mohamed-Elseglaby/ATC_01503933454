@@ -11,7 +11,7 @@ import { LoaderComponent } from './shared/loader/loader.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'EVENT STORE';
+  title = 'areeb-task';
   constructor(private router:Router){}
   isClear():boolean{
     return !['/dashboard','/dashboard/add','/register','/login'].includes(this.router.url);

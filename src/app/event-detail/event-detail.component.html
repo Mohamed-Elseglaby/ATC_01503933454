@@ -6,8 +6,6 @@
             <h1 class="text-3xl font-bold text-primary-emphasis">{{selectedEvent?.title}}</h1>
             <p class="my-2 text-xl">{{selectedEvent?.date}} | {{selectedEvent?.time}}</p>
             <p class="text-lg">{{selectedEvent?.cost}}EGP</p>
-            <p-tag severity="success" value="Booked" *ngIf="isBooked(selectedEvent?._id)"/>
-            <p-tag severity="warn" value="Not Booked" *ngIf="!isBooked(selectedEvent?._id)"/>
         </div>
         <div class="flex gap-4">
     <p-confirmdialog #cd>

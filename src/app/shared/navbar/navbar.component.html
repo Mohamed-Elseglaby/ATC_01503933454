@@ -1,7 +1,7 @@
 <nav class="px-6 py-4 mx-12 my-8 shadow-2xl rounded-xl lg:rounded-full bg-surface-200 border-primary font-alex">
   <div class="container relative flex flex-wrap items-center justify-between w-full mx-auto">
     <!-- Logo -->
-    <div class="z-10 text-lg font-bold text-primary hover:cursor-pointer" routerLink="/home" >
+    <div class="z-10 text-lg font-bold text-primary hover:cursor-pointer" routerLink="/welcome" >
       <h1>{{'Event Store'|uppercase}}</h1>
     </div>
 
@@ -29,7 +29,7 @@
         <a routerLink="/login" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="!isAuthorized">Login</a>
         <a routerLink="/register" class="w-full py-2 font-medium text-center rounded-md text-surface-0 bg-primary" *ngIf="!isAuthorized">Register</a>
         <a routerLink="/dashboard" class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized&&isAdmin">Dashboard</a>
-        <button class="w-full py-2 text-center border rounded-md border-rose-500 text-rose-500" *ngIf="isAuthorized">Logout</button>
+        <button class="w-full py-2 text-center border rounded-md border-primary text-primary" *ngIf="isAuthorized">Logout</button>
         
         <div class="flex justify-between w-full py-2">
           <button class="flex items-center p-2 bg-transparent border-none cursor-pointer" (click)="toggleDarkTheme()">

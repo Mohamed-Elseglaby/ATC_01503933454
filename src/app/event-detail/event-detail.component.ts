@@ -1,78 +1,52 @@
-  import { Component, Input, OnInit } from '@angular/core';
-  import { EventDetails } from '../Models/event-details';
-  import { ButtonModule } from 'primeng/button';
-  import { InputNumberModule } from 'primeng/inputnumber';
-  import { FormsModule } from '@angular/forms';
-  import { ConfirmDialogModule } from 'primeng/confirmdialog';
-  import { ToastModule } from 'primeng/toast';
-  import { ConfirmationService, MessageService } from 'primeng/api';
-  import { EventsService } from '../Services/events.service';
-  import { ActivatedRoute } from '@angular/router';
-import { BookingService } from '../Services/booking.service';
-import { Booking } from '../Models/booking';
-import { CommonModule } from '@angular/common';
-import { TagModule } from 'primeng/tag';
+import { Component, Input, OnInit } from '@angular/core';
+import { EventDetails } from '../Models/event-details';
+import { ButtonModule } from 'primeng/button';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { FormsModule } from '@angular/forms';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { EventsService } from '../Services/events.service';
+import { ActivatedRoute } from '@angular/router';
 
-  @Component({
-    selector: 'app-event-detail',
-    imports: [ButtonModule,InputNumberModule,FormsModule,ConfirmDialogModule,ToastModule,CommonModule,TagModule],
-    templateUrl: './event-detail.component.html',
-    styleUrl: './event-detail.component.css',
-    providers:[ConfirmationService,MessageService]
-  })
-  export class EventDetailComponent implements OnInit{
-    id:string|null;
-    selectedEvent!:EventDetails|null|undefined;
-    bookedtickets:Booking[]=[]
-    @Input() event:EventDetails = {_id:"",title:"Event Title",date:"May 30",location:"Alexandria",time:"09:00AM",cost:250,Category:'music',Description:"Best concert in The MENA Region",map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.487138831378!2d31.630418823322294!3d30.10887117489122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581d0076c628fd%3A0x79a9352dd30a2613!2sBoom%20Room!5e0!3m2!1sar!2seg!4v1747310203742!5m2!1sar!2seg",img:'https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg'}
-    constructor(private confirmationService: ConfirmationService, private messageService: MessageService,
-      private router:ActivatedRoute,private eventsServ:EventsService
-    ,private eventServ:EventsService,
-    private BookingServ:BookingService
-    ) {
-      this.id = this.router.snapshot.paramMap.get('id');
-    }
-    ngOnInit(): void {
-      this.loadBookings()
-      this.eventServ.getEvent(this.id).subscribe({  
-        next:(res)=>{
-          this.selectedEvent = res
-        }
-      })
-    }
-    loadBookings(){
-      this.BookingServ.getMyBookings().subscribe((res)=>{
-        this.bookedtickets = res;
-                  console.log(this.bookedtickets)
-
-      }
-    )
-    }
-    isBooked(id:string|undefined):boolean{
-      return this.bookedtickets.some((a)=>{
-        return a.event._id === id
-      }) 
-    }
-      confirm() {
-          this.confirmationService.confirm({
-              header: 'Are you sure?',
-              message: `Please confirm that you want to buy Yhis Ticket.`,
-              icon:'pi pi-map',
-              
-              accept: () => {
-                  this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Ordered Succesfully' });
-                  console.log(this.id)
-                  this.BookingServ.bookTicket(this.id).subscribe({
-                    next:(res)=>{
-                      console.log(res)
-                      this.loadBookings()
-                    }
-                  })
-              },
-              reject: () => {
-                  this.messageService.add({ severity: 'warn', summary: 'Rejected', detail: 'Order Rejected' });
-              },
-          });
-      }
-    value1:number = 0;
+@Component({
+  selector: 'app-event-detail',
+  imports: [ButtonModule,InputNumberModule,FormsModule,ConfirmDialogModule,ToastModule],
+  templateUrl: './event-detail.component.html',
+  styleUrl: './event-detail.component.css',
+  providers:[ConfirmationService,MessageService]
+})
+export class EventDetailComponent implements OnInit{
+  id:string|null;
+  selectedEvent!:EventDetails;
+  @Input() event:EventDetails = {_id:"",title:"Event Title",date:"May 30",location:"Alexandria",time:"09:00AM",cost:250,Category:'music',Description:"Best concert in The MENA Region",map:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.487138831378!2d31.630418823322294!3d30.10887117489122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581d0076c628fd%3A0x79a9352dd30a2613!2sBoom%20Room!5e0!3m2!1sar!2seg!4v1747310203742!5m2!1sar!2seg",img:'https://d3vzzcunewy153.cloudfront.net/img/17f95c00-4ab0-492d-94a6-3a647e5ea2fe/41b7b12c4712eb5f157f6b635c157241.jpg'}
+  constructor(private confirmationService: ConfirmationService, private messageService: MessageService,
+    private router:ActivatedRoute,private eventsServ:EventsService
+  ,private eventServ:EventsService
+  ) {
+    this.id = this.router.snapshot.paramMap.get('id');
   }
+  ngOnInit(): void {
+    this.eventServ.getEvent(this.id).subscribe({
+      next:(res)=>{
+        this.selectedEvent = res
+      }
+    })
+  }
+
+    confirm() {
+        this.confirmationService.confirm({
+            header: 'Are you sure?',
+            message: `Please confirm that you want to buy ${this.value1} Tickets.`,
+            icon:'pi pi-map',
+            
+            accept: () => {
+                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Ordered Succesfully' });
+            },
+            reject: () => {
+                this.messageService.add({ severity: 'info', summary: 'Rejected', detail: 'Order Rejected' });
+            },
+        });
+    }
+  value1:number = 0;
+}
