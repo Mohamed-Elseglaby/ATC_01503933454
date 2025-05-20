@@ -32,7 +32,7 @@ A comprehensive full-stack application for booking and managing events. Built wi
 | Feature                           | Status       |
 | --------------------------------- | ------------ |
 | Web-only UI                       | ✅           |
-| Custom Design (No templates used) | ✅           |
+| Custom Design                     | ✅           |
 | Dark Mode                         | ✅           |
 
 ### 🛠 Backend
@@ -254,7 +254,6 @@ Components tested:
 * and more...
 ![image](https://github.com/user-attachments/assets/db69124a-cc38-4e17-b3b1-3467e8c72380)
 
----
 
 
 ## Author
