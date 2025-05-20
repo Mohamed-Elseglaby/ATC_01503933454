@@ -32,7 +32,7 @@ constructor(private fb:FormBuilder,private authServ:AuthService,private router:R
             this.router.navigate(['/dashboard'])
           }
           else{
-            this.router.navigate(['/home'])
+                        this.router.navigate(['/home'])
           }
         },
         error:(err)=>{

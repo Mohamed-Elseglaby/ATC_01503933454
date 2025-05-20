@@ -12,7 +12,7 @@ import { ShowEventsComponent } from './show-events/show-events.component';
 
 export const routes: Routes = [
     {path:'',redirectTo:'home',pathMatch:'full'},
-    {path:'home',component:LandingComponent,canActivate:[noAuthGuard]},
+    {path:'home',component:LandingComponent},
     {path:'login',component:LoginComponent,canActivate:[noAuthGuard]},
     {path:'register',component:RegisterComponent,canActivate:[noAuthGuard]},
     {path:'dashboard',component:DashboardComponent,canActivate:[authGuard],
@@ -22,6 +22,6 @@ export const routes: Routes = [
 
         ]
     },
-    {path:'event/:id',component:EventDetailComponent,canActivate:[noAuthGuard]},
+    {path:'event/:id',component:EventDetailComponent},
     {path:'**',redirectTo:'home'}
 ];
